@@ -51,22 +51,59 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html")
 })
 
-app.get("/scrapeByKeyword", function(req, res){
+/*app.get("/scrapeByKeyword", function(req, res){
     let array = []
-    if (req.param.keyword)
+    if (req.keyword)
     {
-        sneaks.getProducts(req.param.keyword, 10, function(err, products){
+        sneaks.getProducts(req.param.keyword, 3, function(err, products){
             res.send(products)
         })
     }
     else
     {
-        sneaks.getMostPopular(10, function(err, products){
-            res.send(products)
+        sneaks.getMostPopular(3, function(err, products){
+            
+            res.send(products[0])
         })
     }
 
     //res.send(array)
+})
+*/
+/*
+app.get("/shoes", function(req, res)
+{
+    function createShoeCard(shoe) 
+    {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const thumbnail = document.createElement('img');
+        thumbnail.src = shoe.thumbnail;
+        card.appendChild(thumbnail);
+
+        const title = document.createElement('h2');
+        title.textContent = shoe.shoeName;
+        card.appendChild(title);
+
+        const brand = document.createElement('p');
+        brand.textContent = `Brand: ${shoe.brand}`;
+        card.appendChild(brand);
+
+        const description = document.createElement('p');
+        description.textContent = shoe.description;
+        card.appendChild(description);
+
+        // You can add more shoe details if needed
+
+        document.getElementById('shoeContainer').appendChild(card);
+    }
+
+    shoes.forEach(shoe => {
+        createShoeCard(shoe);
+
+    res.sendFile(__dirname + "/index.html")
+})
 })
 
 app.get("/scrapeByStyleID", function(req, res){
@@ -79,10 +116,19 @@ app.get("/scrapeByStyleID", function(req, res){
     }
     else
     {
-        sneaks.getMostPopular(10, function(err, products){
+        sneaks.getMostPopular(3, function(err, products){
             res.send(products)
         })
     }
 })
+*/
+app.get('/search', function (req, res) {
+    let array =[]
+    sneaks.getProducts(req.query.keyword, 3, function(err, products){
+        res.send(JSON.stringify(products))
+
+    })
+    
+});
 
 app.listen(3000)
