@@ -6,7 +6,7 @@
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="script.js" defer></script>
+
     <title>Shoe Price Search</title>
 </head>
 <body>
@@ -42,10 +42,12 @@
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
           </ul>
+          <!--
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
+            -->
         </div>
     </nav>
   
@@ -56,32 +58,7 @@
         <input type="text" id="keyword" name="keyword" placeholder="Enter a keyword"/>
         <input type="submit" value="Search keyword"/>
     </form>
-  </div>
+    
 
-  <script>
-        async function search() {
-            const keyword = document.getElementById('keywordInput').value;
-            const response = await fetch(`/search?keyword=${encodeURIComponent(keyword)}`);
-            const data = await response.json();
-            displayResults(data);
-        }
-
-        function displayResults(shoes) {
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = '';
-
-            shoes.forEach(shoe => {
-                const shoeElement = document.createElement('div');
-                shoeElement.classList.add('shoe');
-                shoeElement.innerHTML = `
-                    <h2>${shoe.name}</h2>
-                    <p>Brand: ${shoe.brand}</p>
-                    <p>Price: ${shoe.price}</p>
-                    <!-- Add more shoe details here -->
-                `;
-                resultsContainer.appendChild(shoeElement);
-            });
-        }
-  </script>
 </body>
 </html>
