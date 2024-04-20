@@ -8,16 +8,18 @@ const sneaks = new sneaksAPI();
 app.use(express.static('public'));
 app.set('view engine', 'ejs'); // Set EJS as the view engine
 
-app.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, 'index.ejs'));
+/*app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
+*/
 
 app.get('/search', function (req, res) {
     sneaks.getProducts(req.query.keyword, 10, function(err, products) { 
-        res.render('index', { products }); // Render index.ejs with products data
+      res.render('index', { products }); // Render index.ejs with products data
+        
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port http://127.0.0.1:3000/');
+app.listen(5000, () => {
+    console.log('Server is running on port http://127.0.0.1:5000/');
 });
