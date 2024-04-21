@@ -7,15 +7,23 @@ const sneaks = new sneaksAPI();
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs'); // Set EJS as the view engine
+app.set('views', path.join(__dirname, 'views'));
 
-/*
-app.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, 'index.html'));
+sneaks.getMostPopular(10, function(err, products) {
+  if (err) {
+      console.error("Error fetching most popular products:", err);
+  } else {
+      // Render index template with most popular products
+      app.get('/', function (req, res) {
+          res.render('index', { products });
+      });
+  }
 });
-*/
+
+
 
 app.get('/search', function (req, res) {
-    sneaks.getProducts(req.query.keyword, 31, function(err, products) { 
+    sneaks.getProducts(req.query.keyword, 30, function(err, products) { 
       res.render('index', { products }); // Render index.ejs with products data
 
     });

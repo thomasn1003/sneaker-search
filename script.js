@@ -29,3 +29,17 @@ function displayResults(shoes) {
         shoeResults.appendChild(shoeDiv);
     });
 } 
+
+document.getElementById('theme-toggle').addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const theme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+});
+
+// Check user's theme preference and apply it
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+}
