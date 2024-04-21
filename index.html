@@ -52,23 +52,6 @@
             <input type="submit" value="Search keyword"/>
         </form>
         <!--Search Results-->
-        <% if (products && products.length) { %>
-            <div>
-                <% products.forEach(function(product) { %>
-                    <div>
-                        <h2><%= product.shoeName %></h2>
-                        <h3><%= product.brand %></h3>
-                        <ul>
-                            <% Object.keys(product.lowestResellPrice).forEach(function(platform) { %>
-                              <li><strong><%= platform %>:</strong> <%= product.lowestResellPrice[platform] ? ('$' + product.lowestResellPrice[platform]) : 'N/A' %></li>
-                            <% }); %>
-                        </ul>
-                        <img src="<%= product.thumbnail %>" alt="<%= product.shoeName %>" style="width: 600px; height: auto;">
-                        
-                    </div>
-                <% }); %>
-            </div>
-        <% } %>
-    </div>
+      
 </body>
 </html>

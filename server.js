@@ -14,7 +14,7 @@ app.get("/", function(req, res){
 
 
 app.get('/search', function (req, res) {
-    sneaks.getProducts(req.query.keyword, 10, function(err, products) { 
+    sneaks.getProducts(req.query.keyword, 30, function(err, products) { 
       res.render('index', { products }); // Render index.ejs with products data
         
     });

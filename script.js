@@ -28,4 +28,4 @@ function displayResults(shoes) {
 
         shoeResults.appendChild(shoeDiv);
     });
-}
+} 
