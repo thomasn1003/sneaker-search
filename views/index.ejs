@@ -63,10 +63,17 @@
                       <h2><%= product.shoeName %></h2>
                       <h3><%= product.brand %></h3>
                       <ul>
-                          <% Object.keys(product.lowestResellPrice).forEach(function(platform) { %>
-                              <li><strong><%= platform %>:</strong> <%= product.lowestResellPrice[platform] ? ('$' + product.lowestResellPrice[platform]) : 'N/A' %></li>
-                          <% }); %>
-                      </ul>
+                        <% Object.keys(product.lowestResellPrice).forEach(function(platform) { %>
+                            <li>
+                                <strong><%= platform %>:</strong> 
+                                <% if (product.resellLinks && product.resellLinks[platform]) { %>
+                                    <a href="<%= product.resellLinks[platform] %>">$<%= product.lowestResellPrice[platform] %></a>
+                                <% } else { %>
+                                    N/A
+                                <% } %>
+                            </li>
+                        <% }); %>
+                    </ul>
                       <img src="<%= product.thumbnail %>" alt="<%= product.shoeName %>">
                   </div>
               <% }); %>

@@ -2,56 +2,57 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-  }
+}
   
-  h1 {
+h1 {
     text-align: center;
-  }
+}
   
-  input[type="text"] {
-    width: 70%;
+.search-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+input[type="text"] {
     padding: 10px;
-    margin: 10px 0;
-  }
-  
-  button {
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Make it rounded */
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+button {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Make it rounded */
+    background-color: #007bff; /* Change button color */
+    color: #fff; /* Text color */
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #45a049;
-  }
+} 
   
-  #shoeResults {
+#shoeResults {
     display: flex;
     flex-wrap: wrap;
-  }
+}
   
-  .shoe {
+.shoe {
     width: 200px;
     margin: 10px;
-  }
+}
   
-  .shoe img {
-    width: 100%;
+.shoe img {
+    width: 60%;
     height: auto;
-  }
+}
 
-  .search {
-    display:flex;
-    flex-direction: column;
-    gap: .25rem;
-  }
-
-  input {
-    font-size: 1rem;
-  }
-
-  .card-container {
+.card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -63,6 +64,12 @@ body {
     padding: 20px;
     width: calc(33.33% - 20px); /* Adjust the width as needed */
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    transform: scale(1.05); /* Scale up on hover */
 }
 
 .card h2 {
@@ -84,7 +91,7 @@ body {
 }
 
 .card img {
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
     display: block;
     margin-top: 10px;
