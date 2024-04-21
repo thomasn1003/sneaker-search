@@ -1,3 +1,3 @@
-# Sneaker Search
+# Resell Search
 
-Sneaker Search is a website that allows users to search sneakers and get resell information on the product
+Resell Search is a website that uses sneaks-api to search through the most popular resell sites for item prices.
